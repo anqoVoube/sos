@@ -1,9 +1,10 @@
-from telebot.types import Message, KeyboardButton, ReplyKeyboardMarkup
+from telebot.types import Message
 
+from config.settings import TOKEN
 from deps import MenuBot
 from menus import StartMenu
 
-bot = MenuBot(token="6391896963:AAErxWgKqyOoXAWCZpJntR1OB82yT5_CPWM")
+bot = MenuBot(token=TOKEN)
 
 
 @bot.message_handler(commands=['start'])
