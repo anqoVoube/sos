@@ -1,8 +1,10 @@
+import redis
 from telebot.types import Message
 
 from config.settings import TOKEN
 from deps import MenuBot
 from menus import StartMenu
+
 
 bot = MenuBot(token=TOKEN)
 

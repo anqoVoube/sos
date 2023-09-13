@@ -11,7 +11,7 @@ class ServiceStartMenu(BaseMenu):
     def _build_keyboard(self):
         self._keyboard.add(
             InlineKeyboardButton(
-                text="Unknown Text",
+                text="Подать заявку",
                 callback_data="services_unknown"
             ),
             InlineKeyboardButton(

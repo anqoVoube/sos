@@ -40,23 +40,28 @@ class SOSStartMenu(BaseMenu):
     @staticmethod
     def uchastkoviy(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "+998(94) 671-09-50")
+        with open("media/sashka.jpg", "rb") as file:
+            bot.send_replaced_photo("sos", callback.from_user.id, file, f"+998(94) 671-09-50\nСаша Артёмов\n{UCHASTKOVIY}")
 
     @staticmethod
     def santexnik(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "+998(91) 555-61-52")
+        with open("media/sashka.jpg", "rb") as file:
+            bot.send_replaced_photo("sos", callback.from_user.id, file, f"+998(94) 671-09-50\nСаша Артёмов\n{UCHASTKOVIY}")
+
 
     @staticmethod
     def electric(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "+998(97) 825-12-58")
+        with open("media/sashka.jpg", "rb") as file:
+            bot.send_replaced_photo("sos", callback.from_user.id, file, f"+998(94) 671-09-50\nСаша Артёмов\n{UCHASTKOVIY}")
+
 
     @staticmethod
     def lifter(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "+998(94) 612-29-40")
-
+        with open("media/sashka.jpg", "rb") as file:
+            bot.send_replaced_photo("sos", callback.from_user.id, file, f"+998(94) 671-09-50\nСаша Артёмов\n{UCHASTKOVIY}")
 
     def _build_handlers(self):
         self._bot.register_callback_query_handler(
