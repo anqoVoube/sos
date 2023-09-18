@@ -1,7 +1,9 @@
 from telebot.types import InlineKeyboardButton, CallbackQuery
 
 from deps import BaseMenu, MenuBot
-from menus.sos.start import SOSStartMenu
+from menus.info.res import InfoResMenu
+from menus.info.suvsoz import InfoSuvSozMenu
+from menus.info.veolia import InfoVeoliaMenu
 from static import WELCOME_TEXT
 
 
@@ -32,17 +34,17 @@ class InfoStartMenu(BaseMenu):
     @staticmethod
     def res(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "Not ready yet! Now go and beat Jamoliddin for bad productivity!")
+        bot.send_menu(callback, InfoResMenu(bot))
 
     @staticmethod
     def suvsoz(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "Not ready yet! Now go and beat Jamoliddin for bad productivity!")
+        bot.send_menu(callback, InfoSuvSozMenu(bot))
 
     @staticmethod
     def veolia(callback: CallbackQuery, bot: MenuBot):
         bot.answer_callback_query(callback.id)
-        bot.send_message(callback.from_user.id, "Not ready yet! Now go and beat Jamoliddin for bad productivity!")
+        bot.send_menu(callback, InfoVeoliaMenu(bot))
 
     def _build_handlers(self):
         self._bot.register_callback_query_handler(
@@ -60,5 +62,11 @@ class InfoStartMenu(BaseMenu):
         self._bot.register_callback_query_handler(
             self.veolia,
             self._bot.eq_callback("info_veolia"),
+            pass_bot=True
+        )
+
+        self._bot.register_callback_query_handler(
+            self.veolia,
+            self._bot.eq_callback("info"),
             pass_bot=True
         )

@@ -27,7 +27,7 @@ class ServiceUnknownMenu(BaseMenu):
             ),
             InlineKeyboardButton(
                 text="Назад",
-                callback_data="services_menu"
+                callback_data="services"
             ),
         )
 

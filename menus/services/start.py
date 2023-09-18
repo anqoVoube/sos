@@ -55,11 +55,6 @@ class ServiceStartMenu(BaseMenu):
         bot.answer_callback_query(callback.id)
         bot.send_message(callback.from_user.id, "Next step is not presented in Miro :D")
 
-    @staticmethod
-    def sos_start_menu(callback: CallbackQuery, bot: MenuBot):
-        bot.answer_callback_query(callback.id)
-        bot.send_menu(callback, ServiceStartMenu(bot))
-
     def _build_handlers(self):
         self._bot.register_callback_query_handler(
             self.unknown,
@@ -82,11 +77,5 @@ class ServiceStartMenu(BaseMenu):
         self._bot.register_callback_query_handler(
             self.data,
             self._bot.eq_callback("services_data"),
-            pass_bot=True
-        )
-
-        self._bot.register_callback_query_handler(
-            self.sos_start_menu,
-            self._bot.eq_callback("services_menu"),
             pass_bot=True
         )
